@@ -1,12 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horse-Shoe-Inn</title>
-</head>
-<body>
-    <h1>This is the Test page</h1>
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>    
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-7 col-md-6 my-auto" id="stay"> <!-- linked to main image -->
+                <h1 class="display-4 logo-font">
+                    Book Your Stay
+                </h1> <!-- change text to desired style -->
+                <div class="my-5">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,5 +1,5 @@
 """
-ASGI config for horse_shoe_inn project.
+ASGI config for horseshoe_inn project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'horse_shoe_inn.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'horseshoe_inn.settings')
 
 application = get_asgi_application()

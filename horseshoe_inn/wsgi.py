@@ -1,5 +1,5 @@
 """
-WSGI config for horse_shoe_inn project.
+WSGI config for horseshoe_inn project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'horse_shoe_inn.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'horseshoe_inn.settings')
 
 application = get_wsgi_application()

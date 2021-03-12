@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     # main site apps
     'home.apps.HomeConfig',
     'bookings.apps.BookingsConfig',
+    # third party app
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

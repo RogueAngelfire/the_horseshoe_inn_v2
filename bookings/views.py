@@ -23,3 +23,17 @@ def room_information_list(request):
     room_information = RoomInformation.objects.all()
     serializer = RoomInformationSerializer(room_information, many=True)
     return Response(serializer.data)
+
+
+@api_view(['GET'])
+def room_information_detail(request, id):
+    room_information = RoomInformation.objects.get(id=id)
+    serializer = RoomInformationSerializer(room_information, many=False)
+    return Response(serializer.data)
+
+
+@api_view(['POST'])
+def room_information_detail(request, id):
+    room_information = RoomInformation.objects.get(id=id)
+    serializer = RoomInformationSerializer(room_information, many=False)
+    return Response(serializer.data)

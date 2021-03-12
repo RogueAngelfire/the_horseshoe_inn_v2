@@ -33,7 +33,10 @@ def room_information_detail(request, id):
 
 
 @api_view(['POST'])
-def room_information_detail(request, id):
-    room_information = RoomInformation.objects.get(id=id)
-    serializer = RoomInformationSerializer(room_information, many=False)
+def room_information_create(request, *args, **kwargs):
+    serializer = RoomInformationSerializer(data=request.POST)    
+    
+    if serializer.is_valid(raise_exception=True):
+        serializer.save()
+        return Response(serializer.data, status=200)
     return Response(serializer.data)

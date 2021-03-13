@@ -33,10 +33,29 @@ def room_information_detail(request, id):
 
 
 @api_view(['POST'])
-def room_information_create(request, *args, **kwargs):
+def room_information_create(request):
     serializer = RoomInformationSerializer(data=request.POST)    
     
     if serializer.is_valid(raise_exception=True):
         serializer.save()
         return Response(serializer.data, status=200)
     return Response(serializer.data)
+
+
+@api_view(['POST'])
+def room_information_update(request, id):
+    room_information = RoomInformation.objects.get(id=id)
+    serializer = RoomInformationSerializer(instance=room_information, data=request.data)    
+    
+    if serializer.is_valid(raise_exception=True):
+        serializer.save()
+        
+    return Response(serializer.data)
+
+
+@api_view(['DELETE'])
+def room_information_delete(request, id):
+    room_information = RoomInformation.objects.get(id=id)
+    room_information.delete()
+        
+    return Response('Item Succsefully Deleted')

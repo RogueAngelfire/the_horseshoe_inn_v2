@@ -6,4 +6,6 @@ urlpatterns = [
     path('room_information_list/', views.room_information_list, name='room_information_list'),
     path('room_information_detail/<int:id>', views.room_information_detail, name='room_information_detail'),
     path('room_information_create/', views.room_information_create, name='room_information_create'),
+    path('room_information_update/<int:id>', views.room_information_update, name='room_information_update'),
+    path('room_information_delete/<int:id>', views.room_information_delete, name='room_information_delete'),
 ]

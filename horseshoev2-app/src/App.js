@@ -29,10 +29,13 @@ class App extends React.Component{
       })
       )
   }
+  handleChange(e){
+
+  }
 
   render(){
     var rooms = this.state.roomList
-    console.log("rooms",rooms)
+    console.log('rooms', rooms)
     return(
       <div className="container">
         <div id="task-container">
@@ -56,7 +59,7 @@ class App extends React.Component{
                 <div style={{flex:7}}>
                   <span>{room.room_name}: </span>
                   <span>{room.room_description} </span>
-                  <span><img src={room.room_image}/></span><br></br>
+                  <span><img src={'http://127.0.0.1:8000'+room.room_image}/>{room.room_image}</span><br></br>
                   <span>{room.room_type}</span><br></br>
                   <span>Customer Rating: {room.room_ratings}</span><br></br>
                   <span>Price per Night: £{room.room_price_per_night}</span>

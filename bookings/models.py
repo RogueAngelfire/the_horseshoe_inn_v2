@@ -10,6 +10,10 @@ ROOM_TYPES = (
 
 class RoomInformation(models.Model):
     
+    class PostObjects(models.Manager):
+        def get_queryset(self):
+            return super().get_queryset()
+    
     class Meta:
         verbose_name_plural = 'RoomInformation'
 
@@ -21,6 +25,9 @@ class RoomInformation(models.Model):
     room_price_per_night = models.FloatField()
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
+    
+    objects = models.Manager()  # default manager
+    postobjects = PostObjects()  # custom manager
     
     def __str__(self):
         return self.room_name

@@ -6,13 +6,13 @@ class RoomInformationSerializer(serializers.ModelSerializer):
         
     class Meta:
         model = RoomInformation
-        fields =  [
+        fields =  (
             'id',
             'room_name',
             'room_image',
             'room_description',
             'room_type',
             'room_ratings',
-            'room_price_per_night']
+            'room_price_per_night')
         
     

@@ -1,3 +1,4 @@
+from rest_framework import generics
 from django.shortcuts import render
 from django.http import JsonResponse
 
@@ -8,54 +9,11 @@ from .serializers import RoomInformationSerializer
 from .models import RoomInformation
 
 
-@api_view(['GET'])
-def room_inforamation(request):
-    
-    api_urls ={
-        'List': '/room_information/'
-    }
-    
-    return Response(api_urls)
+class PostList(generics.ListCreateAPIView):
+    queryset = RoomInformation.postobjects.all()
+    serializer_class = RoomInformationSerializer
 
 
-@api_view(['GET'])
-def room_information_list(request):
-    room_information = RoomInformation.objects.all()
-    serializer = RoomInformationSerializer(room_information, many=True)
-    return Response(serializer.data)
-
-
-@api_view(['GET'])
-def room_information_detail(request, id):
-    room_information = RoomInformation.objects.get(id=id)
-    serializer = RoomInformationSerializer(room_information, many=False)
-    return Response(serializer.data)
-
-
-@api_view(['POST'])
-def room_information_create(request):
-    serializer = RoomInformationSerializer(data=request.POST)    
-    
-    if serializer.is_valid(raise_exception=True):
-        serializer.save()
-        return Response(serializer.data, status=200)
-    return Response(serializer.data)
-
-
-@api_view(['POST'])
-def room_information_update(request, id):
-    room_information = RoomInformation.objects.get(id=id)
-    serializer = RoomInformationSerializer(instance=room_information, data=request.data)    
-    
-    if serializer.is_valid(raise_exception=True):
-        serializer.save()
-        
-    return Response(serializer.data)
-
-
-@api_view(['DELETE'])
-def room_information_delete(request, id):
-    room_information = RoomInformation.objects.get(id=id)
-    room_information.delete()
-        
-    return Response('Item Succsefully Deleted')
+class PostDetail(generics.RetrieveDestroyAPIView):
+    queryset = RoomInformation.postobjects.all()
+    serializer_class = RoomInformationSerializer
